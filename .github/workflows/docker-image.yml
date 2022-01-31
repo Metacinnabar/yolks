@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build ./dotnet/6/ --file Dockerfile --tag dotnet_6:$(date +%s)
+      run: docker build . --file dotnet/6/Dockerfile --tag dotnet_6:$(date +%s)
       
     - name: Log in to registry
       run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
